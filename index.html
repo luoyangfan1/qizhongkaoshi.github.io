@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三年级科学下册 期中复习</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,'Microsoft YaHei',sans-serif}
+        body{background:#f7f9fc;padding:20px}
+        .container{max-width:800px;margin:0 auto;background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 10px rgba(0,0,0,0.08)}
+        .title{text-align:center;color:#2c3e50;margin-bottom:20px}
+        .tab{display:flex;gap:10px;margin-bottom:20px}
+        .tab button{flex:1;padding:12px;border:none;border-radius:8px;background:#eef2f7;color:#444;font-size:16px;cursor:pointer}
+        .tab button.active{background:#3498db;color:#fff}
+        .panel{display:none}
+        .panel.active{display:block}
+        .lesson-item{margin-bottom:10px}
+        .lesson-btn{width:100%;padding:12px;text-align:left;background:#f1f5f9;border:none;border-radius:8px;font-size:15px;cursor:pointer}
+        .lesson-content{padding:12px;background:#fafbfc;border-radius:8px;margin-top:5px;display:none;line-height:1.6}
+        .quiz-box{padding:15px 0}
+        .quiz-item{margin-bottom:18px}
+        .quiz-question{font-weight:bold;margin-bottom:8px}
+        .options{display:flex;flex-direction:column;gap:8px}
+        .options button{padding:10px;border:1px solid #ddd;border-radius:8px;background:#fff;text-align:left;cursor:pointer}
+        .options button.correct{background:#d4edda;border-color:#c3e6cb}
+        .options button.wrong{background:#f8d7da;border-color:#f5c6cb}
+        .options button.selected{background:#e3f2fd;border-color:#bbdefb}
+        .analysis{margin-top:6px;padding:8px;background:#fff3cd;border-radius:6px;font-size:14px;color:#856404;display:none}
+        .btn-refresh{padding:12px 20px;background:#28a745;color:#fff;border:none;border-radius:8px;margin-top:15px;cursor:pointer}
+        .score{font-size:18px;font-weight:bold;color:#2c3e50;margin-top:15px;margin-bottom:10px}
+        .comment{font-size:16px;color:#165DFF;line-height:1.6;padding:12px;background:#f0f7ff;border-radius:8px;margin-top:10px;display:none}
+        .success{font-size:18px;font-weight:bold;color:#fff;background:#429d64;padding:15px;border-radius:8px;text-align:center;margin-top:20px;display:none}
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2 class="title">三年级科学下册 期中复习（第一、二单元）</h2>
+    <div class="tab">
+        <button class="tab-btn active" data-target="beisong">背诵卡片</button>
+        <button class="tab-btn" data-target="zuoti">做题模式</button>
+    </div>
+
+    <!-- 背诵卡片 -->
+    <div id="beisong" class="panel active">
+        <div class="lesson-list">
+            <div class="lesson-item">
+                <button class="lesson-btn">1.1 根据太阳辨别方向</button>
+                <div class="lesson-content">
+                    1.太阳东升西落，这是最基本的方向规律。<br>
+                    2.早晨面向太阳，前面是东，后面是西，左面是北，右面是南。<br>
+                    3.傍晚面向太阳，前面是西，后面是东，左面是南，右面是北。<br>
+                    4.影子方向永远与太阳方向相反。<br>
+                    5.一天中：太阳方向东→南→西；影子方向西→北→东。
+                </div>
+            </div>
+            <div class="lesson-item">
+                <button class="lesson-btn">1.2 利用自然物辨别方向</button>
+                <div class="lesson-content">
+                    1.北极星始终指向正北方，是夜晚辨别方向的好帮手。<br>
+                    2.积雪：南面朝阳，融化快；北面背阴，融化慢。<br>
+                    3.植物：树叶南密北疏，南边光照更充足。<br>
+                    4.树木年轮：南疏北密，南边生长更快。<br>
+                    5.苔藓：喜欢阴暗潮湿，北面多，南面少。
+                </div>
+            </div>
+            <div class="lesson-item">
+                <button class="lesson-btn">1.3 利用磁铁辨别方向</button>
+                <div class="lesson-content">
+                    1.磁铁能吸引铁、钴、镍等金属物质。<br>
+                    2.磁铁只有能自由旋转时，静止后才会指向南北方向。<br>
+                    3.常用方法：悬挂法、水浮法、支撑法。<br>
+                    4.磁铁指向南方的一端叫南极，用字母S表示。<br>
+                    5.磁铁指向北方的一端叫北极，用字母N表示。
+                </div>
+            </div>
+            <div class="lesson-item">
+                <button class="lesson-btn">1.4 磁极与方向</button>
+                <div class="lesson-content">
+                    1.任何磁铁都有两个磁极：南极（S）和北极（N）。<br>
+                    2.磁极相互作用：同极相斥，异极相吸。<br>
+                    3.地球本身就是一个巨大的磁铁。<br>
+                    4.地磁南极在地理北极附近，地磁北极在地理南极附近。<br>
+                    5.把磁铁折断，每一段都会变成新的小磁铁，依然有两个磁极。
+                </div>
+            </div>
+            <div class="lesson-item">
+                <button class="lesson-btn">1.5 制作小磁针</button>
+                <div class="lesson-content">
+                    1.磁化：原本没有磁性的物体获得磁性的过程。<br>
+                    2.磁极位置磁性最强，磁铁中间部分磁性最弱。<br>
+                    3.用磁铁沿同一方向多次摩擦钢针，能让钢针磁化。<br>
+                    4.摩擦次数越多，钢针的磁性越强。<br>
+                    5.钢针是最适合用来制作小磁针的材料。
+                </div>
+            </div>
+            <div class="lesson-item">
+                <button class="lesson-btn">1.6~1.8 指南针</button>
+                <div class="lesson-content">
+                    1.指南针是我国古代四大发明之一，是辨别方向的工具。<br>
+                    2.使用步骤：放平→等待静止→红色N极指北，白色S极指南。<br>
+                    3.指南针必须远离铁器、磁铁等干扰物品。<br>
+                    4.指南针利用磁铁能指示南北的性质工作。<br>
+                    5.在野外迷路，指南针是最准确、最可靠的辨别方向工具。
+                </div>
+            </div>
+            <div class="lesson-item">
+                <button class="lesson-btn">2.1 不同种类的动物</button>
+                <div class="lesson-content">
+                    1.按身体结构分：脊椎动物和无脊椎动物。<br>
+                    2.脊椎动物：身体里有脊柱，如鱼、鸟、猫、狗、人。<br>
+                    3.无脊椎动物：身体里没有脊柱，如昆虫、蝴蝶、蚂蚁。<br>
+                    4.按食性分：草食动物、肉食动物、杂食动物。<br>
+                    5.草食：只吃植物；肉食：只吃肉；杂食：既吃植物也吃肉。
+                </div>
+            </div>
+            <div class="lesson-item">
+                <button class="lesson-btn">2.2 动物的繁殖</button>
+                <div class="lesson-content">
+                    1.按繁殖方式分：卵生动物和胎生动物。<br>
+                    2.卵生动物：产卵，经过孵化生出后代，如鸡、鸭、鹅、蝴蝶。<br>
+                    3.胎生动物：直接生下幼崽，用母乳哺育长大，如猫、狗、牛、人。<br>
+                    4.孔雀开屏是求偶行为，为了吸引异性。<br>
+                    5.蜻蜓点水是繁殖行为，蜻蜓把卵产在水里。
+                </div>
+            </div>
+            <div class="lesson-item">
+                <button class="lesson-btn">2.3 迎接蚕宝宝</button>
+                <div class="lesson-content">
+                    1.蚕的生命是从卵开始的，蚕卵是有生命的。<br>
+                    2.刚产下的蚕卵是淡黄色或白色，慢慢变成紫黑色。<br>
+                    3.蚕卵孵化需要适宜的温度（25℃左右）和湿度。<br>
+                    4.刚孵化出来的蚕很小，像蚂蚁一样，叫做蚁蚕。<br>
+                    5.养蚕要准备干净、干燥、通风的环境。
+                </div>
+            </div>
+            <div class="lesson-item">
+                <button class="lesson-btn">2.4 幼蚕在生长</button>
+                <div class="lesson-content">
+                    1.蚕的身体分为头、胸、腹三部分。<br>
+                    2.蚕身体两侧的小黑点是气门，用来呼吸。<br>
+                    3.蚕生长过程中会蜕皮，蜕皮前不吃不动，叫做眠。<br>
+                    4.幼蚕时期一共会蜕4次皮。<br>
+                    5.蚕最喜欢吃新鲜、干燥、干净的桑叶，不能吃有水、发霉的桑叶。
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 做题模式 -->
+    <div id="zuoti" class="panel">
+        <div class="quiz-box" id="quizBox"></div>
+        <button class="btn-refresh" onclick="loadQuiz()">刷新题目（重新随机5道）</button>
+        <div class="score" id="score"></div>
+        <div class="comment" id="comment"></div>
+        <div class="success" id="success">🎉 闯关成功！所有题目已全部做完！<br>期中复习圆满完成，期中考试一定能取得优异成绩！</div>
+    </div>
+</div>
+
+<script>
+// 切换标签
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+        document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'))
+        document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'))
+        btn.classList.add('active')
+        document.getElementById(btn.dataset.target).classList.add('active')
+    })
+})
+
+// 展开背诵
+document.querySelectorAll('.lesson-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+        const content=btn.nextElementSibling
+        content.style.display=content.style.display=='block'?'none':'block'
+    })
+})
+
+let usedQuestions = [];
+let userAnswers = [];
+
+const questions = [
+    {q:"早晨面向太阳，左边是？",o:["东","南","西","北"],a:3,ans:"早晨面向太阳，前面是东，左边是北"},
+    {q:"中午太阳在南方，影子在？",o:["东","南","西","北"],a:3,ans:"影子方向与太阳相反，在北方"},
+    {q:"磁铁自由静止后指向？",o:["东西","南北","东北西南","随意"],a:1,ans:"磁铁能指示南北方向"},
+    {q:"磁极相互作用规律是？",o:["同极相吸","同极相斥","都相吸","都相斥"],a:1,ans:"同极相斥，异极相吸"},
+    {q:"下列是卵生动物的是？",o:["猫","狗","鸡","牛"],a:2,ans:"鸡是卵生，由鸡蛋孵化而来"},
+    {q:"蚕身体两侧小黑点是？",o:["眼睛","足","气门","斑点"],a:2,ans:"气门是蚕用来呼吸的器官"},
+    {q:"指南针红色端指向？",o:["东","南","西","北"],a:3,ans:"指南针红色N极指向北方"},
+    {q:"树木年轮哪侧疏？",o:["东","南","西","北"],a:1,ans:"南边光照好，年轮长得更疏"},
+    {q:"蚕主要食物是？",o:["白菜叶","莴苣叶","桑叶","树叶"],a:2,ans:"蚕最喜欢吃新鲜的桑叶"},
+    {q:"下列能指示北方的是？",o:["太阳","北极星","月亮","云朵"],a:1,ans:"北极星永远在北方天空"},
+    {q:"用指南针要远离？",o:["木头","塑料","铁器","布"],a:2,ans:"铁会干扰磁铁，让指南针不准"},
+    {q:"蚕幼蚕时期蜕皮几次？",o:["2次","3次","4次","5次"],a:2,ans:"幼蚕阶段一共蜕4次皮"},
+    {q:"下列是胎生动物的是？",o:["鸡","鸭","猫","鹅"],a:2,ans:"猫是胎生，直接生小猫"},
+    {q:"傍晚面对太阳，前面是？",o:["东","南","西","北"],a:2,ans:"傍晚太阳在西边，前面是西"},
+    {q:"刚孵化的蚕叫？",o:["白蚕","黑蚕","蚁蚕","小蚕"],a:2,ans:"刚孵出的蚕小小的像蚂蚁，叫蚁蚕"},
+    {q:"磁铁哪个部分磁性最强？",o:["中间","两端","一样强","没有磁性"],a:1,ans:"磁铁磁极（两端）磁性最强"},
+    {q:"一天中影子最短在？",o:["早晨","中午","傍晚","夜晚"],a:1,ans:"中午太阳最高，影子最短"},
+    {q:"制作小磁针用什么摩擦最好？",o:["铅笔","尺子","磁铁","橡皮"],a:2,ans:"用磁铁摩擦钢针可以磁化"},
+    {q:"冬天积雪融化慢的是？",o:["东","南","西","北"],a:3,ans:"北面晒不到太阳，积雪融化慢"},
+    {q:"指南针运用磁铁的什么性质？",o:["吸铁","指示南北","彩色","透明"],a:1,ans:"指南针利用磁铁能指南北的性质"},
+    {q:"下列属于脊椎动物的是？",o:["蚂蚁","蝴蝶","猫","蜜蜂"],a:2,ans:"猫身体里有脊柱，是脊椎动物"},
+    {q:"一天中影子变化规律是？",o:["短→长→短","长→短→长","一直长","一直短"],a:1,ans:"早晨傍晚长，中午短"},
+    {q:"蜻蜓点水是在？",o:["喝水","游戏","产卵","洗澡"],a:2,ans:"蜻蜓点水是把卵产在水里"},
+    {q:"两块磁铁N极靠近会？",o:["吸在一起","推开","不动","消失"],a:1,ans:"同极相互排斥，会推开"},
+    {q:"辨别方向最准确的是？",o:["看树叶","看太阳","指南针","看年轮"],a:2,ans:"指南针是辨别方向最准确的工具"},
+    {q:"下列动物不吃肉的是？",o:["老虎","兔子","狼","狮子"],a:1,ans:"兔子是草食动物，只吃植物"},
+    {q:"下列动物是杂食动物的是？",o:["牛","羊","人","马"],a:2,ans:"人既吃植物也吃肉，属于杂食动物"},
+    {q:"下列动物会飞的是？",o:["猫","狗","鸟","兔"],a:2,ans:"鸟类大部分都会飞行"},
+    {q:"蚕身体分为几部分？",o:["2部分","3部分","4部分","5部分"],a:1,ans:"蚕身体分为头、胸、腹三部分"},
+    {q:"哪种方法不能让磁铁指示方向？",o:["悬挂","水浮","固定住","支撑"],a:2,ans:"磁铁必须能自由转动才能指示南北"},
+    {q:"太阳高度越高，影子越？",o:["长","短","不变","消失"],a:1,ans:"太阳越高，影子越短"},
+    {q:"孔雀开屏是动物的什么行为？",o:["求偶","吃食","睡觉","散步"],a:0,ans:"孔雀开屏是为了吸引异性，属于求偶行为"},
+    {q:"天然磁铁是？",o:["钢针","铁钉","磁石","铁丝"],a:2,ans:"磁石是天然存在的磁铁"},
+    {q:"下列哪种动物不哺乳？",o:["人","猫","鸡","狗"],a:2,ans:"鸡是卵生动物，不哺乳"},
+    {q:"影子形成原因是？",o:["光沿直线传播","光会弯曲","光会消失","光变色"],a:0,ans:"影子是因为光沿直线传播形成"},
+    {q:"怎样增强钢针磁性？",o:["摩擦一次","同一方向多次摩擦","随便摩擦","不摩擦"],a:1,ans:"同一方向多次摩擦能让钢针磁性更强"},
+    {q:"蚕卵是什么形状？",o:["方形","圆形","扁圆形","三角形"],a:2,ans:"蚕卵是扁圆形的"},
+    {q:"下列是肉食动物的是？",o:["牛","羊","狼","马"],a:2,ans:"狼主要吃肉，是肉食动物"},
+    {q:"指南针是哪国发明？",o:["美国","英国","中国","法国"],a:2,ans:"指南针是中国古代四大发明之一"},
+    {q:"蚕适合的温度是？",o:["0℃","10℃","25℃","50℃"],a:2,ans:"蚕适合在25℃左右的环境生长"},
+    {q:"磁铁能吸引哪种物体？",o:["铜片","铝片","铁钉","纸片"],a:2,ans:"磁铁只能吸引铁、钴、镍等金属"},
+    {q:"哪种不是辨别方向的方法？",o:["看太阳","看北极星","看树叶","看云朵"],a:3,ans:"云朵不能用来辨别方向"},
+    {q:"磁铁有几个磁极？",o:["1个","2个","3个","4个"],a:1,ans:"任何磁铁都有南极和北极两个磁极"},
+    {q:"哪种动物由母亲哺乳长大？",o:["鸡","鸭","猫","鹅"],a:2,ans:"猫是哺乳动物，喝母乳长大"},
+    {q:"一天中影子最长在？",o:["早晨傍晚","中午","夜晚","半夜"],a:0,ans:"早晨和傍晚太阳低，影子最长"},
+    {q:"刚产下的蚕卵颜色是？",o:["黑色","紫色","淡黄色","绿色"],a:2,ans:"刚产下的蚕卵是淡黄色或白色"},
+    {q:"两块磁铁S极靠近会？",o:["吸住","推开","不动","消失"],a:1,ans:"同极相互排斥，S极靠近会推开"},
+    {q:"树叶哪一边更茂密？",o:["南密北疏","北密南疏","一样密","无规律"],a:0,ans:"南边光照足，树叶长得更茂密"},
+    {q:"下列哪种是胎生？",o:["鸡孵蛋","鱼产卵","猫生小猫","蝴蝶产卵"],a:2,ans:"猫直接生下小猫，属于胎生"},
+    {q:"使用指南针时应该？",o:["摇晃","放平","倒立","靠近磁铁"],a:1,ans:"指南针必须放平静止才能准确指方向"},
+    {q:"蚕蜕皮时会？",o:["吃食","不动（眠）","乱飞","喝水"],a:1,ans:"蚕蜕皮前会进入眠期，不吃不动"},
+    {q:"哪种不能被磁铁吸引？",o:["回形针","铁钉","铜钥匙","别针"],a:2,ans:"铜钥匙不是铁制品，不被磁铁吸引"},
+    {q:"影子长短和什么有关？",o:["太阳颜色","太阳高度","温度","大小"],a:1,ans:"影子长短由太阳高度决定"},
+    {q:"地球是一个大？",o:["铁块","磁铁","木头","玻璃"],a:1,ans:"地球本身就是一个巨大的磁铁"},
+    {q:"哪种动物有脊柱？",o:["蚂蚁","蝴蝶","鱼","蜜蜂"],a:2,ans:"鱼身体里有脊柱，属于脊椎动物"},
+    {q:"傍晚影子在？",o:["东","南","西","北"],a:0,ans:"傍晚太阳在西，影子在相反的东方"},
+    {q:"磁铁折断后会？",o:["无磁极","变成两个小磁铁","一个磁极","铁块"],a:1,ans:"磁铁折断后会变成两个新的小磁铁"},
+    {q:"早晨影子在？",o:["东","南","西","北"],a:2,ans:"早晨太阳在东，影子在相反的西方"},
+    {q:"哪种动物无脊柱？",o:["猫","狗","蝴蝶","人"],a:2,ans:"蝴蝶没有脊柱，属于无脊椎动物"},
+    {q:"一天太阳位置变化是？",o:["西→南→东","东→南→西","东→北→西","随意"],a:1,ans:"一天中太阳从东升起，西边落下"},
+    {q:"喂蚕的桑叶要？",o:["潮湿发霉","干燥新鲜","有水","枯萎"],a:1,ans:"蚕要吃干燥、新鲜、干净的桑叶"},
+    {q:"磁铁南极字母是？",o:["N","S","W","E"],a:1,ans:"磁铁南极用字母S表示"},
+    {q:"磁铁北极字母是？",o:["N","S","W","E"],a:0,ans:"磁铁北极用字母N表示"},
+    {q:"我国古代四大发明包括？",o:["电灯","电话","指南针","汽车"],a:2,ans:"指南针是中国古代四大发明之一"},
+    {q:"哪种方法不能磁化钢针？",o:["磁铁摩擦","用火烤","同一方向摩擦","多次摩擦"],a:1,ans:"用火烤不能磁化钢针"},
+    {q:"地磁北极在地球哪附近？",o:["地理北极","地理南极","赤道","任意"],a:1,ans:"地磁北极在地理南极附近"},
+    {q:"蚕卵孵化需要？",o:["高温","低温","适宜温湿度","黑暗"],a:2,ans:"蚕卵需要适宜的温度和湿度才能孵化"},
+    {q:"中午太阳在哪个方向？",o:["东方","南方","西方","北方"],a:1,ans:"中午太阳在我们的南方天空"},
+    {q:"哪种物体会干扰指南针？",o:["铁制品","纸盒","木盒","塑料"],a:0,ans:"铁制品会干扰指南针，影响准确性"},
+    {q:"草食动物是？",o:["老虎","狼","兔子","熊"],a:2,ans:"兔子只吃植物，是草食动物"},
+    {q:"影子方向和太阳方向？",o:["相同","相反","垂直","无关"],a:1,ans:"影子方向永远和太阳方向相反"},
+    {q:"悬挂磁铁线要系在？",o:["中间","一端","随便","底部"],a:0,ans:"悬挂磁铁要系在正中间才能自由转动"},
+    {q:"下列哪种是无脊椎动物？",o:["猫","狗","蚂蚁","人"],a:2,ans:"蚂蚁没有脊柱，属于无脊椎动物"},
+    {q:"下列哪种是脊椎动物？",o:["蝴蝶","蚂蚁","鱼","蜜蜂"],a:2,ans:"鱼身体里有脊柱，是脊椎动物"},
+    {q:"下列哪种是草食动物？",o:["狼","老虎","羊","狮子"],a:2,ans:"羊只吃植物，属于草食动物"},
+    {q:"下列哪种是肉食动物？",o:["兔子","羊","老虎","牛"],a:2,ans:"老虎主要吃肉，是肉食动物"},
+    {q:"下列哪种是卵生？",o:["猫","狗","鱼","牛"],a:2,ans:"鱼是卵生动物，产卵繁殖"},
+    {q:"下列哪种是胎生？",o:["鸡","鸭","狗","鹅"],a:2,ans:"狗是胎生，直接生小狗"},
+    {q:"夜晚辨别方向靠？",o:["太阳","月亮","北极星","云朵"],a:2,ans:"夜晚靠北极星辨别北方"},
+    {q:"磁铁中间磁性？",o:["最强","最弱","一样","没有"],a:1,ans:"磁铁中间部分磁性最弱"},
+    {q:"蚕的生命起点是？",o:["蚁蚕","卵","幼虫","成虫"],a:1,ans:"蚕的一生从卵开始"},
+    {q:"下列哪种动物生活在陆地？",o:["鱼","虾","蚕","蟹"],a:2,ans:"蚕生活在陆地上，吃桑叶"},
+    {q:"下列哪种动物生活在水中？",o:["鸡","鱼","猫","狗"],a:1,ans:"鱼终生生活在水中"},
+    {q:"太阳东升西落，傍晚在？",o:["东","南","西","北"],a:2,ans:"傍晚太阳在西方"},
+    {q:"下列哪种行为属于繁殖？",o:["吃食","睡觉","产卵","散步"],a:2,ans:"产卵是动物典型的繁殖行为"},
+    {q:"下列哪种物体是铁制品？",o:["铜钥匙","铁钉","铝片","纸片"],a:1,ans:"铁钉是铁制品，能被磁铁吸引"},
+    {q:"辨别方向最简单工具是？",o:["树叶","太阳","指南针","年轮"],a:2,ans:"指南针是最方便准确的工具"},
+    {q:"蚕蜕皮是因为？",o:["身体长大","衣服旧了","生病","好玩"],a:0,ans:"蚕身体长大，旧皮装不下才蜕皮"},
+    {q:"下列哪种动物是昆虫？",o:["猫","狗","蚕","鱼"],a:2,ans:"蚕属于昆虫类动物"},
+    {q:"水浮法磁铁能指示方向吗？",o:["能","不能","不一定","偶尔"],a:0,ans:"水浮法能让磁铁自由转动，可指示方向"},
+    {q:"悬挂法磁铁能指示方向吗？",o:["能","不能","不一定","偶尔"],a:0,ans:"悬挂法能让磁铁自由转动，可指示方向"},
+    {q:"下列哪种动物不会飞？",o:["鸟","蝴蝶","猫","蜜蜂"],a:2,ans:"猫是陆地动物，不会飞行"},
+    {q:"下列哪种动物不吃桑叶？",o:["蚕","蚂蚁","蝴蝶","蜜蜂"],a:1,ans:"蚂蚁不吃桑叶，蚕最喜欢桑叶"}
+];
+
+function loadQuiz(){
+    const box = document.getElementById('quizBox');
+    const successBox = document.getElementById('success');
+    box.innerHTML = '';
+    document.getElementById('score').innerText = '';
+    document.getElementById('comment').style.display = 'none';
+    successBox.style.display = 'none';
+    userAnswers = [];
+
+    if(usedQuestions.length >= questions.length){
+        successBox.style.display = 'block';
+        return;
+    }
+
+    let remaining = questions.filter(q => !usedQuestions.includes(q));
+    remaining = remaining.sort(() => Math.random() - 0.5);
+    const selected = remaining.slice(0,5);
+    window.currentQuiz = selected;
+
+    selected.forEach((item,idx)=>{
+        const div = document.createElement('div');
+        div.className = 'quiz-item';
+        div.innerHTML = `
+            <div class="quiz-question">${idx+1}. ${item.q}</div>
+            <div class="options" data-idx="${idx}">
+                ${item.o.map((opt,i)=>`<button onclick="selectAns(${idx},${i},this)">${String.fromCharCode(65+i)}. ${opt}</button>`).join('')}
+            </div>
+            <div class="analysis" id="analysis${idx}"></div>
+        `;
+        box.appendChild(div);
+    });
+}
+
+function selectAns(qIdx, optIdx, btn){
+    const opts = btn.parentElement.querySelectorAll('button');
+    opts.forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    userAnswers[qIdx] = optIdx;
+    if(userAnswers.filter(x=>x!==undefined).length === window.currentQuiz.length){
+        showFinalResult();
+    }
+}
+
+function showFinalResult(){
+    markUsed();
+    let correctCount = 0;
+    const total = window.currentQuiz.length;
+
+    window.currentQuiz.forEach((q, idx)=>{
+        const opts = document.querySelectorAll(`.options[data-idx="${idx}"] button`);
+        const analysis = document.getElementById(`analysis${idx}`);
+        
+        if(userAnswers[idx] === q.a){
+            correctCount++;
+            opts[userAnswers[idx]].classList.add('correct');
+            analysis.textContent = '✅ 正确';
+        }else{
+            opts[userAnswers[idx]].classList.add('wrong');
+            opts[q.a].classList.add('correct');
+            analysis.textContent = '❌ 解析：' + q.ans;
+        }
+        analysis.style.display = 'block';
+    });
+
+    const scoreText = document.getElementById('score');
+    scoreText.innerText = `本次得分：${correctCount}/${total} | 已完成：${usedQuestions.length}/${questions.length}`;
+
+    const commentBox = document.getElementById('comment');
+    let comment = '';
+    if(correctCount === 5){
+        comment = "🌟 罗老师评语：太棒啦！你是科学小达人，知识点掌握得超级扎实，继续保持，你就是最棒的！";
+    }else if(correctCount === 4){
+        comment = "👍 罗老师评语：非常优秀！只差一点点就满分啦，你学得很认真，再细心一点就完美了！";
+    }else if(correctCount === 3){
+        comment = "😊 罗老师评语：不错哦！基础知识已经掌握啦，再多看看背诵卡片，下次一定能考得更好！";
+    }else if(correctCount === 2){
+        comment = "💪 罗老师评语：别灰心！你已经很努力了，把错题多看几遍解析，多背知识点，罗老师相信你一定能进步！";
+    }else{
+        comment = "🤗 罗老师评语：勇敢尝试就是最棒的！跟着背诵卡片好好复习，多做几次练习，罗老师陪着你一起进步！";
+    }
+    commentBox.innerText = comment;
+    commentBox.style.display = 'block';
+}
+
+function markUsed(){
+    window.currentQuiz.forEach(q => {
+        if(!usedQuestions.includes(q)) usedQuestions.push(q);
+    });
+}
+
+loadQuiz();
+</script>
+</body>
+</html>
